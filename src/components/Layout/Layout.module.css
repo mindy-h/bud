@@ -1,7 +1,6 @@
 .main {
   flex: 1;
   min-height: calc(100vh - var(--header-height) - 12rem);
-  padding: var(--space-8) var(--space-6);
 }
 
 .main:focus {

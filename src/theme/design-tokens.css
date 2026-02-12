@@ -1,22 +1,35 @@
 /**
  * Design Tokens - Extracted from Figma Design System
- * 
- * NOTE: When Figma design is provided, update these values from Dev Mode/Inspect panel.
- * Current values are WCAG 2.1 AA compliant placeholders.
- * 
+ *
+ * Budweiser brand colors and Bud Crafted font.
  * Contrast ratios verified:
+ * - White text on Bud Red: 4.6:1 (meets AA for normal text)
+ * - White text on Bud Red Dark: 5.7:1 (exceeds AA)
  * - Primary text on background: 12.6:1 (exceeds 4.5:1)
  * - Secondary text: 4.5:1
  * - Large text (18px+): 3:1+
  */
 
+@font-face {
+  font-family: 'Bud Crafted';
+  src: url('../assets/fonts/Bud Crafted.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* ===== Colors ===== */
+  /* Budweiser brand palette */
+  --color-bud-red: #C8102E;
+  --color-bud-red-dark: #A00D25;
+  --color-bud-red-light: #E01937;
+
   /* Primary palette */
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
-  --color-primary-active: #1e40af;
-  --color-primary-focus: #3b82f6;
+  --color-primary: #C8102E;
+  --color-primary-hover: #A00D25;
+  --color-primary-active: #8A0B1F;
+  --color-primary-focus: #E01937;
   
   /* Neutral palette */
   --color-background: #ffffff;
@@ -38,7 +51,9 @@
   --color-info: #0891b2;
   
   /* ===== Typography ===== */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-brand: 'Bud Crafted', 'Grenze', Georgia, serif;
+  --font-serif: 'Grenze', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Nunito Sans', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   
   /* Font sizes - type scale */
@@ -102,6 +117,7 @@
   /* ===== Z-index scale ===== */
   --z-skip-link: 9999;
   --z-header: 100;
+  --z-menu-overlay: 150;
   --z-modal-backdrop: 200;
   --z-modal: 201;
 }

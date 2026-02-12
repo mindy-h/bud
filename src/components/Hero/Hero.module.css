@@ -1,0 +1,273 @@
+/* ===== Hero section ===== */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  min-height: 560px;
+  overflow: visible;
+}
+
+/* ===== Texture overlay (shared) ===== */
+.textureOverlay {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== Left panel (red) ===== */
+.leftPanel {
+  background: var(--color-bud-red);
+  display: flex;
+  align-items: center;
+  padding: var(--space-16) 0 var(--space-16) var(--space-12);
+  position: relative;
+}
+
+.leftContent {
+  position: relative;
+  z-index: 2;
+  max-width: 438px;
+  padding-right: var(--space-4);
+}
+
+/* Figma: Bud Crafted, 90px, normal, 400, line-height 90px, letter-spacing -0.9px */
+.heading {
+  font-family: var(--font-brand);
+  font-size: clamp(2.5rem, 6vw, 5.625rem);
+  font-weight: var(--font-weight-normal);
+  font-style: normal;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.9px;
+  margin: 0 0 var(--space-6);
+}
+
+.description {
+  font-family: 'Roboto', var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: #ffffff;
+  line-height: var(--line-height-relaxed);
+  margin: 0 0 var(--space-8);
+  max-width: 400px;
+  opacity: 0.9;
+}
+
+.cta {
+  display: inline-block;
+  padding: var(--space-3) var(--space-8);
+  font-family: 'Roboto', var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-bud-red);
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.cta:hover {
+  background: transparent;
+  color: #ffffff;
+}
+
+.cta:focus-visible {
+  outline: var(--focus-ring-width) solid #ffffff;
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ===== Bottle (center overlap) ===== */
+.bottleWrapper {
+  position: absolute;
+  left: 50%;
+  bottom: -40px;
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Hidden on desktop, shown on mobile as bottle section background */
+.bottleBg {
+  display: none;
+}
+
+.bottleImage {
+  height: clamp(400px, 45vw, 620px);
+  width: auto;
+  display: block;
+  filter: drop-shadow(-8px 8px 24px rgba(0, 0, 0, 0.35));
+}
+
+/* ===== Right panel (vintage image) ===== */
+.rightPanel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d4c9b8;
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+/* Figma: Bud Crafted, 150px, #CF0A2C, line-height 185px, letter-spacing -1.5px, multiply */
+.since {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-brand);
+  font-size: clamp(4rem, 10vw, 9.375rem);
+  font-weight: var(--font-weight-normal);
+  font-style: normal;
+  color: #CF0A2C;
+  line-height: 1.233;
+  letter-spacing: -1.5px;
+  text-align: left;
+  margin: 0;
+  padding: 0 var(--space-8);
+  mix-blend-mode: multiply;
+}
+
+/* Figma: 200px, line-height 185px, letter-spacing -2px */
+.year {
+  font-size: clamp(5rem, 14vw, 12.5rem);
+  line-height: 0.925;
+  letter-spacing: -2px;
+  display: block;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 460px;
+  }
+
+  .leftPanel {
+    padding: var(--space-10) 0 var(--space-10) var(--space-8);
+  }
+
+  .leftContent {
+    max-width: 360px;
+  }
+
+  .description {
+    max-width: 320px;
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* ===== Small tablet ===== */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 380px;
+  }
+
+  .leftPanel {
+    padding: var(--space-8) 0 var(--space-8) var(--space-6);
+  }
+
+  .leftContent {
+    max-width: 280px;
+  }
+
+  .description {
+    max-width: 260px;
+    font-size: var(--font-size-sm);
+  }
+
+  .cta {
+    padding: var(--space-2) var(--space-6);
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  /* Red panel - full width, stacked on top */
+  .leftPanel {
+    padding: var(--space-8) var(--space-6) var(--space-10);
+  }
+
+  .leftContent {
+    max-width: 100%;
+    padding-right: 0;
+  }
+
+  .heading {
+    font-size: 2.25rem;
+  }
+
+  .description {
+    max-width: 100%;
+    font-size: var(--font-size-sm);
+  }
+
+  .cta {
+    padding: var(--space-3) var(--space-8);
+    font-size: var(--font-size-sm);
+  }
+
+  /* Bottle - centered between panels, in normal flow position */
+  .bottleWrapper {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 0;
+    margin-bottom: 0;
+    pointer-events: none;
+    background: #d4c9b8;
+    overflow: hidden;
+  }
+
+  .bottleBg {
+    display: block;
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+  }
+
+  .bottleImage {
+    height: 360px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Right panel - full width, below bottle */
+  .rightPanel {
+    min-height: 200px;
+    padding: var(--space-6);
+  }
+
+  .since {
+    font-size: 4.5rem;
+    padding: 0 var(--space-4);
+  }
+
+  .year {
+    font-size: 6.5rem;
+  }
+}
