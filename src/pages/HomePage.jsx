@@ -1,4 +1,5 @@
 import Hero from '../components/Hero/Hero';
+import CampaignCards from '../components/CampaignCards/CampaignCards';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 export default function HomePage() {
@@ -7,6 +8,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <CampaignCards />
     </>
   );
 }

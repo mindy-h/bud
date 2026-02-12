@@ -1,0 +1,181 @@
+/* ===== Section ===== */
+.section {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-color: #3b2a1a;
+  padding: var(--space-16) var(--space-8);
+  overflow: hidden;
+}
+
+/* Decorative lager beer text */
+.lagerBeer {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  height: auto;
+  width: clamp(280px, 25vw, 400px);
+  opacity: 0.3;
+  pointer-events: none;
+  filter: brightness(3);
+}
+
+/* ===== Heading ===== */
+.heading {
+  font-family: var(--font-brand);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: var(--font-weight-normal);
+  color: #ffffff;
+  text-align: center;
+  margin: 0 0 var(--space-10);
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Card grid ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Card ===== */
+.card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 350ms ease, transform 350ms ease;
+  display: flex;
+  flex-direction: column;
+
+  /* Parallax entrance */
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-6px);
+}
+
+.card:focus-visible {
+  outline: var(--focus-ring-width) solid #ffffff;
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Parallax reveal animation */
+.cardVisible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 600ms ease, transform 600ms ease, box-shadow 350ms ease;
+}
+
+/* ===== Card image ===== */
+.cardImage {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+}
+
+.cardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Card body ===== */
+.cardBody {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5) var(--space-6);
+  gap: var(--space-4);
+}
+
+.cardText {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Figma: Bud Crafted, 32px, normal, 400, line-height 34px, #12284C */
+.cardTitle {
+  font-family: var(--font-brand);
+  font-size: 2rem;
+  font-weight: var(--font-weight-normal);
+  color: #12284C;
+  margin: 0 0 var(--space-1);
+  line-height: 1.0625;
+}
+
+.cardDescription {
+  font-family: 'Roboto', var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: var(--line-height-normal);
+}
+
+/* ===== Arrow button ===== */
+.cardArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--color-bud-red);
+  color: #ffffff;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.card:hover .cardArrow {
+  transform: translateX(4px);
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-10) var(--space-6);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .lagerBeer {
+    height: 60%;
+    right: -60px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .section {
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .heading {
+    margin-bottom: var(--space-6);
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .cardBody {
+    padding: var(--space-4);
+  }
+
+  .lagerBeer {
+    display: none;
+  }
+}
