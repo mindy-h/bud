@@ -1,0 +1,77 @@
+/**
+ * Global styles - WCAG 2.1 AA compliant
+ * Import design tokens and base styles
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@import './design-tokens.css';
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Skip link - positioned off-screen until focused */
+.skip-link {
+  position: absolute;
+  top: calc(-1 * var(--header-height) - 1rem);
+  left: var(--space-4);
+  z-index: var(--z-skip-link);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+  outline: var(--focus-ring-width) solid var(--color-text-inverse);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Focus visible - enhanced for keyboard users */
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

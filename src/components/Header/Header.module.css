@@ -1,0 +1,88 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  height: var(--header-height);
+  background: var(--color-background);
+  border-bottom: var(--border-width) solid var(--color-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-max);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.logo {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+}
+
+/* Accessibility: Focus indicator matches design */
+.logo:hover,
+.logo:focus-visible {
+  color: var(--color-primary);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navLink {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+  background-color: var(--color-surface);
+}
+
+.navLink:focus-visible {
+  color: var(--color-primary);
+  background-color: var(--color-surface);
+}
+
+.navLinkActive {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-4);
+  }
+
+  .navList {
+    gap: 0;
+  }
+
+  .navLink {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-sm);
+  }
+}
