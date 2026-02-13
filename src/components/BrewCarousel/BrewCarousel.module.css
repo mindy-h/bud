@@ -1,0 +1,215 @@
+/* ===== Section ===== */
+.section {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-color: #f5f2ed;
+  padding: var(--space-16) var(--space-8) var(--space-12);
+  margin-top: -6rem;
+  padding-top: 10rem;
+}
+
+/* ===== Header row ===== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.heading {
+  font-family: var(--font-brand);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: var(--font-weight-normal);
+  color: #0F224B;
+  margin: 0;
+}
+
+/* ===== CTA pill ===== */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-bud-red);
+  color: #ffffff;
+  font-family: 'Roboto', var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
+}
+
+.cta:hover {
+  background: var(--color-bud-red-dark);
+  transform: scale(1.03);
+}
+
+.cta:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-bud-red);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ===== Carousel wrapper ===== */
+.carouselWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+/* ===== Nav buttons ===== */
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1.5px solid rgba(15, 34, 75, 0.2);
+  border-radius: var(--radius-full);
+  color: #0F224B;
+  cursor: pointer;
+  z-index: 3;
+  transition: background-color 250ms ease-in-out, box-shadow 250ms ease-in-out;
+}
+
+.navBtn:first-of-type {
+  left: -22px;
+}
+
+.navBtn:last-of-type {
+  right: -22px;
+}
+
+.navBtn:hover {
+  background: #f0f0f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navBtn:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-bud-red);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ===== Slide track ===== */
+.track {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 16 / 6;
+}
+
+/* ===== Individual slide ===== */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+.slideActive {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* ===== FPO placeholder ===== */
+.slidePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #b0b0b0, #d0d0d0);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: var(--space-8);
+}
+
+.fpoText {
+  font-family: var(--font-brand);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: var(--font-weight-normal);
+  color: #ffffff;
+  opacity: 0.6;
+}
+
+/* ===== Dot indicators ===== */
+.indicators {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.dot {
+  width: 32px;
+  height: 4px;
+  padding: 0;
+  border: none;
+  border-radius: 2px;
+  background: rgba(15, 34, 75, 0.2);
+  cursor: pointer;
+  transition: background-color 300ms ease-in-out, width 300ms ease-in-out;
+}
+
+.dot:hover {
+  background: rgba(15, 34, 75, 0.4);
+}
+
+.dotActive {
+  background: #0F224B;
+  width: 48px;
+}
+
+.dot:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-bud-red);
+  outline-offset: 2px;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-12) var(--space-6) var(--space-10);
+  }
+
+  .header {
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .navBtn:first-of-type {
+    left: var(--space-2);
+  }
+
+  .navBtn:last-of-type {
+    right: var(--space-2);
+  }
+
+  .track {
+    aspect-ratio: 16 / 8;
+  }
+}
+
+/* ===== Small mobile ===== */
+@media (max-width: 480px) {
+  .section {
+    padding: var(--space-10) var(--space-3) var(--space-8);
+  }
+
+  .navBtn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .track {
+    border-radius: 14px;
+    aspect-ratio: 16 / 10;
+  }
+}

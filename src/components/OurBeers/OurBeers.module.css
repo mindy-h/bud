@@ -4,7 +4,7 @@
   background-size: cover;
   background-position: center;
   background-color: #ebe8e3;
-  padding: var(--space-12) var(--space-8) var(--space-8);
+  padding: var(--space-12) var(--space-8) 14rem;
   overflow: hidden;
 }
 
@@ -162,11 +162,12 @@
 .moa {
   display: block;
   width: 100%;
-  margin: var(--space-10) auto 0;
-  opacity: 0.12;
+  margin: var(--space-6) auto 0;
+  opacity: 0.6;
+  mix-blend-mode: multiply;
   pointer-events: none;
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
 
 /* ===== Tablet ===== */

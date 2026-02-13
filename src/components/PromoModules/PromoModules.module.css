@@ -1,0 +1,125 @@
+/* ===== Section ===== */
+.section {
+  background-size: cover;
+  background-position: center;
+  background-color: #f5f2ed;
+  padding: var(--space-12) var(--space-8);
+}
+
+/* ===== Module — two-column split ===== */
+.module {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  gap: var(--space-6);
+}
+
+.module + .module {
+  margin-top: var(--space-10);
+}
+
+/* Reversed: text left, images right */
+.moduleReversed {
+  direction: ltr;
+}
+
+/* ===== Image block ===== */
+.imageBlock {
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.imageBlock img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+}
+
+/* ===== Text block ===== */
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-12) var(--space-12);
+}
+
+.heading {
+  font-family: var(--font-brand);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: var(--font-weight-normal);
+  color: #0F224B;
+  line-height: 1.1;
+  margin: 0 0 var(--space-4);
+}
+
+.body {
+  font-family: 'Roboto', var(--font-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+  margin: 0 0 var(--space-6);
+  max-width: 420px;
+}
+
+/* ===== CTA pill ===== */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-bud-red);
+  color: #ffffff;
+  font-family: 'Roboto', var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
+}
+
+.cta:hover {
+  background: var(--color-bud-red-dark);
+  transform: scale(1.03);
+}
+
+.cta:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-bud-red);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 768px) {
+  .section {
+    padding: 0 var(--space-4);
+  }
+
+  .module {
+    grid-template-columns: 1fr;
+  }
+
+  .moduleReversed .textBlock {
+    order: 2;
+  }
+
+  .moduleReversed .imageBlock {
+    order: 1;
+  }
+
+  .textBlock {
+    padding: var(--space-8) var(--space-4);
+  }
+}
+
+/* ===== Small mobile ===== */
+@media (max-width: 480px) {
+  .section {
+    padding: 0 var(--space-3);
+  }
+
+  .textBlock {
+    padding: var(--space-6) var(--space-3);
+  }
+}
