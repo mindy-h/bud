@@ -11,16 +11,6 @@ Budnew is a demonstration project that showcases:
 - **Component-based architecture**: Reusable, accessible React components
 - **Semantic HTML**: Proper structure for screen readers and assistive technologies
 
-## Figma Design
-
-**Figma Design File**: _[Add your Figma file link here]_
-
-When you have a Figma design:
-
-1. Export assets to `public/assets/figma/`
-2. Update design tokens in `src/theme/design-tokens.css` from Dev Mode/Inspect
-3. Replace placeholder components with Figma-specified styles as needed
-
 ## Installation
 
 ```bash
