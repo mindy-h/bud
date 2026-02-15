@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
-import budLogo from '../../assets/budlogo.png';
+import budLogo from '../../assets/budlogo.webp';
 import styles from './Header.module.css';
 
 const menuColumns = [
   {
     heading: 'Our Beers',
     links: [
-      { label: 'Budweiser', href: '#' },
+      { label: 'Budweiser', href: '/budweiser' },
       { label: 'Budweiser Select', href: '#' },
       { label: 'Budweiser Select 55', href: '#' },
       { label: 'Budweiser Zero', href: '#' },

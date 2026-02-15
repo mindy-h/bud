@@ -1,15 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
-import texture3 from '../../assets/texture3.webp';
+import textureFull from '../../assets/texturefull.webp';
 import budcrown from '../../assets/budcrown.webp';
-import moaSvg from '../../assets/moa.svg';
 import budweiserImg from '../../assets/budweiser.webp';
 import selectImg from '../../assets/select.webp';
 import select55Img from '../../assets/select55.webp';
 import zeroImg from '../../assets/zero.webp';
 import cheladaImg from '../../assets/chelada.webp';
-import styles from './OurBeers.module.css';
+import styles from './ExploreBeers.module.css';
 
-const products = [
+const allProducts = [
   {
     id: 'budweiser',
     name: 'Budweiser',
@@ -52,9 +51,11 @@ const products = [
   },
 ];
 
-export default function OurBeers() {
+export default function ExploreBeers({ exclude }) {
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
+
+  const products = allProducts.filter((p) => p.id !== exclude);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -74,11 +75,11 @@ export default function OurBeers() {
   return (
     <section
       className={styles.section}
-      style={{ backgroundImage: `url(${texture3})` }}
-      aria-label="Our Beers"
+      style={{ backgroundImage: `url(${textureFull})` }}
+      aria-label="Explore Our Other Beers"
       ref={sectionRef}
     >
-      <h2 className={styles.heading}>Our Beers</h2>
+      <h2 className={styles.heading}>Explore Our Other Beers</h2>
 
       <div className={styles.grid}>
         {products.map((product, i) => (
@@ -115,14 +116,6 @@ export default function OurBeers() {
           </a>
         ))}
       </div>
-
-      <img
-        src={moaSvg}
-        alt=""
-        className={styles.moa}
-        aria-hidden="true"
-        loading="lazy"
-      />
     </section>
   );
 }

@@ -1,0 +1,270 @@
+/* ===== Product Hero section ===== */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  min-height: 520px;
+  background: var(--color-bud-red);
+  overflow: hidden;
+}
+
+/* ===== Full-width texture overlay ===== */
+.textureOverlay {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== AB Crest watermark — upper-left, angled ===== */
+.watermark {
+  position: absolute;
+  top: -8%;
+  left: -6%;
+  width: clamp(320px, 38vw, 520px);
+  height: auto;
+  opacity: 1;
+  transform: rotate(-8deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ===== Left area — can image ===== */
+.leftPanel {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: var(--space-8) 48px var(--space-8) var(--space-6);
+}
+
+.canImage {
+  position: relative;
+  z-index: 3;
+  height: clamp(300px, 34vw, 420px);
+  width: auto;
+  display: block;
+  filter: drop-shadow(-4px 6px 16px rgba(0, 0, 0, 0.3));
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+}
+
+.canVisible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 800ms ease-out, transform 800ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .canImage {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+
+  .canVisible {
+    transition: none;
+  }
+}
+
+/* ===== Right panel (product info — on red bg) ===== */
+.rightPanel {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-10) var(--space-12) var(--space-10) 48px;
+}
+
+.productName {
+  font-family: var(--font-brand);
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: var(--font-weight-normal);
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.5px;
+  margin: 0 0 var(--space-6);
+}
+
+.productDescription {
+  font-family: 'Roboto', var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: #ffffff;
+  line-height: var(--line-height-relaxed);
+  margin: 0 0 var(--space-8);
+  max-width: 420px;
+  opacity: 0.9;
+}
+
+/* ===== Available sizes ===== */
+.sizesLabel {
+  font-family: 'Roboto', var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: #ffffff;
+  opacity: 0.9;
+  margin: 0 0 var(--space-4);
+}
+
+.sizesGrid {
+  display: flex;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.sizeItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.sizeIcon {
+  height: 44px;
+  width: auto;
+}
+
+.sizeText {
+  font-family: 'Roboto', var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: #ffffff;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* ===== CTA button (outlined white) ===== */
+.cta {
+  display: inline-block;
+  align-self: flex-start;
+  padding: var(--space-3) var(--space-8);
+  font-family: 'Roboto', var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: #ffffff;
+  background: transparent;
+  border: 2px solid #ffffff;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.cta:hover {
+  background: #ffffff;
+  color: var(--color-bud-red);
+}
+
+.cta:focus-visible {
+  outline: var(--focus-ring-width) solid #ffffff;
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 440px;
+  }
+
+  .rightPanel {
+    padding: var(--space-8) var(--space-8) var(--space-8) var(--space-4);
+  }
+
+  .productDescription {
+    max-width: 340px;
+  }
+
+  .watermark {
+    width: clamp(280px, 34vw, 420px);
+  }
+}
+
+/* ===== Small tablet ===== */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 380px;
+  }
+
+  .leftPanel {
+    padding: var(--space-6) 0 var(--space-6) var(--space-4);
+  }
+
+  .rightPanel {
+    padding: var(--space-6) var(--space-6) var(--space-6) var(--space-4);
+  }
+
+  .productDescription {
+    max-width: 280px;
+    font-size: var(--font-size-xs);
+  }
+
+  .sizesGrid {
+    gap: var(--space-4);
+  }
+
+  .sizeIcon {
+    height: 36px;
+  }
+
+  .cta {
+    padding: var(--space-2) var(--space-6);
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .watermark {
+    width: 280px;
+    top: -4%;
+    left: -8%;
+  }
+
+  .leftPanel {
+    padding: var(--space-8) var(--space-6);
+    min-height: 320px;
+  }
+
+  .canImage {
+    height: 280px;
+  }
+
+  .rightPanel {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .productName {
+    font-size: 2rem;
+  }
+
+  .productDescription {
+    max-width: 100%;
+    font-size: var(--font-size-sm);
+  }
+
+  .sizesGrid {
+    gap: var(--space-4);
+  }
+
+  .sizeIcon {
+    height: 32px;
+  }
+
+  .cta {
+    padding: var(--space-3) var(--space-8);
+    font-size: var(--font-size-sm);
+  }
+}
