@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import budLogo from '../../assets/budlogo.webp';
 import styles from './Header.module.css';
 
@@ -6,34 +7,34 @@ const menuColumns = [
   {
     heading: 'Our Beers',
     links: [
-      { label: 'Budweiser', href: '/budweiser' },
-      { label: 'Budweiser Select', href: '/budweiser-select' },
-      { label: 'Budweiser Select 55', href: '/budweiser-select-55' },
-      { label: 'Budweiser Zero', href: '/budweiser-zero' },
-      { label: 'Budweiser Chelada', href: '/budweiser-chelada' },
+      { label: 'Budweiser', to: '/budweiser' },
+      { label: 'Budweiser Select', to: '/budweiser-select' },
+      { label: 'Budweiser Select 55', to: '/budweiser-select-55' },
+      { label: 'Budweiser Zero', to: '/budweiser-zero' },
+      { label: 'Budweiser Chelada', to: '/budweiser-chelada' },
     ],
   },
   {
     heading: 'Campaigns',
     links: [
-      { label: 'Campaign 1', href: '#' },
-      { label: 'Campaign 2', href: '#' },
-      { label: 'Campaign 3', href: '#' },
+      { label: 'Campaign 1', to: null },
+      { label: 'Campaign 2', to: null },
+      { label: 'Campaign 3', to: null },
     ],
   },
   {
     heading: 'About Us',
     links: [
-      { label: 'Clydesdales', href: '/clydesdales' },
-      { label: 'Contact Us', href: '#' },
-      { label: 'History', href: '/history' },
-      { label: 'Sustainability', href: '#' },
+      { label: 'Clydesdales', to: '/clydesdales' },
+      { label: 'Contact Us', to: null },
+      { label: 'History', to: '/history' },
+      { label: 'Sustainability', to: null },
     ],
   },
   {
     heading: 'Engage',
     links: [
-      { label: 'Buy Merch', href: '#' },
+      { label: 'Buy Merch', to: null },
     ],
   },
 ];
@@ -90,11 +91,9 @@ export default function Header() {
 
   useEffect(() => {
     if (!isMenuOpen) return;
-
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') closeMenu();
     };
-
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isMenuOpen, closeMenu]);
@@ -107,7 +106,6 @@ export default function Header() {
   return (
     <header className={styles.header} role="banner">
       <div className={styles.navBar}>
-        {/* Left: Menu toggle */}
         <button
           type="button"
           className={styles.menuToggle}
@@ -128,12 +126,10 @@ export default function Header() {
           <span className={styles.menuLabel}>Main Menu</span>
         </button>
 
-        {/* Center: Logo */}
-        <a href="/" className={styles.logo} aria-label="Budweiser Home">
+        <Link to="/" className={styles.logo} aria-label="Budweiser Home">
           <img src={budLogo} alt="Budweiser" className={styles.logoImage} />
-        </a>
+        </Link>
 
-        {/* Right: Actions */}
         <div className={styles.actions}>
           <a href="#" className={styles.actionLink} aria-label="Find Your Bud">
             <svg className={styles.actionIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -152,7 +148,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Menu dropdown panel */}
       <nav
         id="main-menu"
         className={`${styles.menuPanel} ${isMenuOpen ? styles.menuPanelOpen : ''}`}
@@ -166,26 +161,32 @@ export default function Header() {
               <ul className={styles.menuList}>
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className={styles.menuLink}
-                      tabIndex={isMenuOpen ? 0 : -1}
-                    >
-                      {link.label}
-                    </a>
+                    {link.to ? (
+                      <Link
+                        to={link.to}
+                        className={styles.menuLink}
+                        tabIndex={isMenuOpen ? 0 : -1}
+                        onClick={closeMenu}
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a href="#" className={styles.menuLink} tabIndex={isMenuOpen ? 0 : -1}>
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
             </div>
           ))}
 
-          {/* Connect / Social column */}
           <div className={styles.menuColumn}>
             <h2 className={styles.menuHeading}>Connect</h2>
             <ul className={styles.socialList}>
               {socialLinks.map((social) => (
                 <li key={social.label}>
-                  <a
+                  
                     href={social.href}
                     className={styles.socialLink}
                     aria-label={social.label}
