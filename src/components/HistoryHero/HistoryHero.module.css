@@ -1,0 +1,76 @@
+/* ===== Hero wrapper ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== Background image (full hero) ===== */
+.bgImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Content overlay ===== */
+.content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-8);
+}
+
+/* ===== Text block ===== */
+.textBlock {
+  max-width: 480px;
+}
+
+.heading {
+  font-family: var(--font-brand);
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  font-weight: var(--font-weight-normal);
+  color: #0F224B;
+  line-height: 1.05;
+  margin: 0 0 var(--space-4);
+}
+
+.description {
+  font-family: 'Roboto', var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: #0F224B;
+  line-height: var(--line-height-relaxed);
+  max-width: 400px;
+  margin: 0;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 1024px) {
+  .content {
+    padding: var(--space-10) var(--space-6);
+  }
+}
+
+/* ===== Small tablet ===== */
+@media (max-width: 768px) {
+  .content {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .textBlock {
+    max-width: 360px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .content {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .textBlock {
+    max-width: 280px;
+  }
+}

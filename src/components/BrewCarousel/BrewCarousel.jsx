@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import texturefull from '../../assets/texturefull.png';
+import texturefull from '../../assets/texturefull.webp';
 import styles from './BrewCarousel.module.css';
 
 const slides = [
@@ -51,7 +51,7 @@ export default function BrewCarousel() {
     >
       <div className={styles.header}>
         <h2 className={styles.heading}>Keeping The Brew Alive</h2>
-        <a href="#" className={styles.cta}>Explore 150 Years</a>
+        <a href="/history" className={styles.cta}>Explore 150 Years</a>
       </div>
 
       <div

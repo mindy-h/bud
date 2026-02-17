@@ -26,7 +26,7 @@ const menuColumns = [
     links: [
       { label: 'Clydesdales', href: '/clydesdales' },
       { label: 'Contact Us', href: '#' },
-      { label: 'History', href: '#' },
+      { label: 'History', href: '/history' },
       { label: 'Sustainability', href: '#' },
     ],
   },

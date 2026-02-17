@@ -20,6 +20,7 @@ const BudweiserSelect55Page = lazy(() => import('./pages/BudweiserSelect55Page')
 const BudweiserZeroPage = lazy(() => import('./pages/BudweiserZeroPage'));
 const BudweiserCheladaPage = lazy(() => import('./pages/BudweiserCheladaPage'));
 const ClydesdalePage = lazy(() => import('./pages/ClydesdalePage'));
+const HistoryPage = lazy(() => import('./pages/HistoryPage'));
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
               <Route path="budweiser-zero" element={<BudweiserZeroPage />} />
               <Route path="budweiser-chelada" element={<BudweiserCheladaPage />} />
               <Route path="clydesdales" element={<ClydesdalePage />} />
+              <Route path="history" element={<HistoryPage />} />
             </Route>
           </Routes>
         </Suspense>
