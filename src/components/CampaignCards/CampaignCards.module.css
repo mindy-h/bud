@@ -74,6 +74,7 @@
   opacity: 1;
   transform: translateY(0);
   transition: opacity 600ms ease, transform 600ms ease, box-shadow 350ms ease;
+  will-change: transform, opacity;
 }
 
 /* ===== Card image ===== */

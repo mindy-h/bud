@@ -21,6 +21,7 @@ export default function BeerLocator() {
           alt=""
           className={styles.cardBg}
           aria-hidden="true"
+          loading="lazy"
         />
 
         <div className={styles.content}>

@@ -1,4 +1,4 @@
-import budlogo from '../../assets/budlogo.png';
+import budlogo from '../../assets/budlogo.webp';
 import styles from './Footer.module.css';
 
 const linkColumns = [
@@ -37,7 +37,7 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={styles.brand}>
             <a href="/">
-              <img src={budlogo} alt="Budweiser" className={styles.logo} />
+              <img src={budlogo} alt="Budweiser" className={styles.logo} loading="lazy" />
             </a>
             <p className={styles.stayConnected}>Stay Connected</p>
             <a href="#" className={styles.newsletter}>Join Newsletter</a>

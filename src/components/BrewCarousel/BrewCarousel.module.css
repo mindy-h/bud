@@ -155,7 +155,8 @@
   border-radius: 2px;
   background: rgba(15, 34, 75, 0.2);
   cursor: pointer;
-  transition: background-color 300ms ease-in-out, width 300ms ease-in-out;
+  transform-origin: center;
+  transition: background-color 300ms ease-in-out, transform 300ms ease-in-out;
 }
 
 .dot:hover {
@@ -164,7 +165,7 @@
 
 .dotActive {
   background: #0F224B;
-  width: 48px;
+  transform: scaleX(1.5);
 }
 
 .dot:focus-visible {

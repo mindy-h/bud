@@ -1,7 +1,7 @@
-import bottleImg from '../../assets/bottle.png';
-import heroImg from '../../assets/hero_img.svg';
-import texture1 from '../../assets/texture1.png';
-import texture2 from '../../assets/texture2.png';
+import bottleImg from '../../assets/bottle.webp';
+import heroImg from '../../assets/hero_img.webp';
+import texture1 from '../../assets/texture1.webp';
+import texture2 from '../../assets/texture2.webp';
 import styles from './Hero.module.css';
 
 export default function Hero() {

@@ -1,15 +1,19 @@
 import { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
-import woodBg from '../../assets/campaign_woodbg.png';
+import woodBg from '../../assets/campaign_woodbg.webp';
 import lagerBeer from '../../assets/lagerbeer.svg';
-import foaImg from '../../assets/FOA.png';
-import mlbImg from '../../assets/mlb.png';
+import foaImg from '../../assets/FOA.webp';
+import foaImg400 from '../../assets/FOA-400w.webp';
+import mlbImg from '../../assets/mlb.webp';
+import mlbImg400 from '../../assets/mlb-400w.webp';
 import styles from './CampaignCards.module.css';
 
 const campaigns = [
   {
     id: 'folds-of-honor',
     image: foaImg,
+    srcSet: `${foaImg400} 400w, ${foaImg} 800w`,
+    sizes: '(max-width: 768px) 100vw, 50vw',
     title: 'Folds of Honor',
     description: 'Celebrating 15 years and $33M raised for military families.',
     href: '#',
@@ -17,6 +21,8 @@ const campaigns = [
   {
     id: 'mlb-budweiser',
     image: mlbImg,
+    srcSet: `${mlbImg400} 400w, ${mlbImg} 800w`,
+    sizes: '(max-width: 768px) 100vw, 50vw',
     title: '2026 Major League Baseball\u2122 & Budweiser',
     description: 'Win prizes all season long!',
     href: '#',
@@ -75,7 +81,13 @@ export default function CampaignCards() {
             style={{ transitionDelay: `${i * 120}ms` }}
           >
             <div className={styles.cardImage}>
-              <img src={campaign.image} alt="" />
+              <img
+                src={campaign.image}
+                srcSet={campaign.srcSet}
+                sizes={campaign.sizes}
+                alt=""
+                loading="lazy"
+              />
             </div>
             <div className={styles.cardBody}>
               <div className={styles.cardText}>
