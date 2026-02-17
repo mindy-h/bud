@@ -24,7 +24,7 @@ const HistoryPage = lazy(() => import('./pages/HistoryPage'));
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/bud'}>
       <div className="app" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Suspense fallback={<div style={{ flex: 1 }} />}>
           <Routes>
