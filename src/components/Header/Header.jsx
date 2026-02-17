@@ -187,7 +187,7 @@ export default function Header() {
               {socialLinks.map((social) => (
                 <li key={social.label}>
                   
-                    href={social.href}
+                    <a href={social.href}
                     className={styles.socialLink}
                     aria-label={social.label}
                     tabIndex={isMenuOpen ? 0 : -1}
