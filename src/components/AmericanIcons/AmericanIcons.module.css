@@ -1,0 +1,123 @@
+/* ===== Section ===== */
+.section {
+  position: relative;
+  background: transparent;
+  padding: var(--space-12) var(--space-8);
+}
+
+/* ===== Heading ===== */
+.heading {
+  font-family: var(--font-brand);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: var(--font-weight-normal);
+  color: #0F224B;
+  text-align: center;
+  margin: 0 0 var(--space-8);
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== Card grid ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== Card ===== */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.cardVisible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+
+  .cardVisible {
+    transition: none;
+  }
+}
+
+.cardImage {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+}
+
+.cardTitle {
+  font-family: var(--font-brand);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-normal);
+  color: #0F224B;
+  margin: 0 0 var(--space-3);
+}
+
+.cardDescription {
+  font-family: 'Roboto', var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 1024px) {
+  .grid {
+    gap: var(--space-5);
+  }
+
+  .card {
+    padding: var(--space-4);
+  }
+}
+
+/* ===== Small tablet ===== */
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-10) var(--space-6);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    gap: var(--space-5);
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .section {
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .card {
+    padding: var(--space-4);
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-lg);
+  }
+}

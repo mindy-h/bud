@@ -15,6 +15,11 @@ const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const TermsPage = lazy(() => import('./pages/TermsPage'));
 const AccessibilityPage = lazy(() => import('./pages/AccessibilityPage'));
 const BudweiserPage = lazy(() => import('./pages/BudweiserPage'));
+const BudweiserSelectPage = lazy(() => import('./pages/BudweiserSelectPage'));
+const BudweiserSelect55Page = lazy(() => import('./pages/BudweiserSelect55Page'));
+const BudweiserZeroPage = lazy(() => import('./pages/BudweiserZeroPage'));
+const BudweiserCheladaPage = lazy(() => import('./pages/BudweiserCheladaPage'));
+const ClydesdalePage = lazy(() => import('./pages/ClydesdalePage'));
 
 function App() {
   return (
@@ -31,6 +36,11 @@ function App() {
               <Route path="terms" element={<TermsPage />} />
               <Route path="accessibility" element={<AccessibilityPage />} />
               <Route path="budweiser" element={<BudweiserPage />} />
+              <Route path="budweiser-select" element={<BudweiserSelectPage />} />
+              <Route path="budweiser-select-55" element={<BudweiserSelect55Page />} />
+              <Route path="budweiser-zero" element={<BudweiserZeroPage />} />
+              <Route path="budweiser-chelada" element={<BudweiserCheladaPage />} />
+              <Route path="clydesdales" element={<ClydesdalePage />} />
             </Route>
           </Routes>
         </Suspense>

@@ -24,7 +24,7 @@ const products = [
     style: 'Non-Alcoholic,',
     abv: '0.0% ABV',
     image: zeroImg,
-    href: '#',
+    href: '/budweiser-zero',
   },
   {
     id: 'bud-select',
@@ -32,7 +32,7 @@ const products = [
     style: 'Light Lager,',
     abv: '4.3% ABV',
     image: selectImg,
-    href: '#',
+    href: '/budweiser-select',
   },
   {
     id: 'bud-select-55',
@@ -40,7 +40,7 @@ const products = [
     style: 'Ultra Light Lager,',
     abv: '2.4% ABV',
     image: select55Img,
-    href: '#',
+    href: '/budweiser-select-55',
   },
   {
     id: 'bud-chelada',
@@ -48,7 +48,7 @@ const products = [
     style: 'Budweiser Chelada With',
     abv: 'Clamato, 5.0% ABV',
     image: cheladaImg,
-    href: '#',
+    href: '/budweiser-chelada',
   },
 ];
 

@@ -7,10 +7,10 @@ const menuColumns = [
     heading: 'Our Beers',
     links: [
       { label: 'Budweiser', href: '/budweiser' },
-      { label: 'Budweiser Select', href: '#' },
-      { label: 'Budweiser Select 55', href: '#' },
-      { label: 'Budweiser Zero', href: '#' },
-      { label: 'Budweiser Chelada', href: '#' },
+      { label: 'Budweiser Select', href: '/budweiser-select' },
+      { label: 'Budweiser Select 55', href: '/budweiser-select-55' },
+      { label: 'Budweiser Zero', href: '/budweiser-zero' },
+      { label: 'Budweiser Chelada', href: '/budweiser-chelada' },
     ],
   },
   {
@@ -24,7 +24,7 @@ const menuColumns = [
   {
     heading: 'About Us',
     links: [
-      { label: 'Clydesdales', href: '#' },
+      { label: 'Clydesdales', href: '/clydesdales' },
       { label: 'Contact Us', href: '#' },
       { label: 'History', href: '#' },
       { label: 'Sustainability', href: '#' },
