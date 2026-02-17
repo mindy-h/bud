@@ -23,6 +23,8 @@ const ClydesdalePage = lazy(() => import('./pages/ClydesdalePage'));
 const HistoryPage = lazy(() => import('./pages/HistoryPage'));
 
 function App() {
+   console.log('NODE_ENV:', process.env.NODE_ENV);
+  console.log('basename:', process.env.NODE_ENV === 'production' ? '/bud' : '/');
   return (
     <BrowserRouter basename={process.env.NODE_ENV === 'production' ? '/bud' : '/'}>
       <div className="app" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
