@@ -1,40 +1,60 @@
 import { useEffect, useRef, useState } from 'react';
-import { client, urlFor } from '../../sanity/client';
 import texture3 from '../../assets/texture3.webp';
 import budcrown from '../../assets/budcrown.webp';
 import moaSvg from '../../assets/moa.svg';
+import budweiserImg from '../../assets/budweiser.webp';
+import selectImg from '../../assets/select.webp';
+import select55Img from '../../assets/select55.webp';
+import zeroImg from '../../assets/zero.webp';
+import cheladaImg from '../../assets/chelada.webp';
 import styles from './OurBeers.module.css';
+
+const products = [
+  {
+    id: 'budweiser',
+    name: 'Budweiser',
+    tagline: 'American-Style Lager,',
+    description: '5.0% ABV',
+    image: budweiserImg,
+    link: '/budweiser',
+  },
+  {
+    id: 'bud-zero',
+    name: 'Budweiser Zero',
+    tagline: 'Non-Alcoholic,',
+    description: '0.0% ABV',
+    image: zeroImg,
+    link: '/budweiser-zero',
+  },
+  {
+    id: 'bud-select',
+    name: 'Budweiser Select',
+    tagline: 'Light Lager,',
+    description: '4.3% ABV',
+    image: selectImg,
+    link: '/budweiser-select',
+  },
+  {
+    id: 'bud-select-55',
+    name: 'Budweiser Select 55',
+    tagline: 'Ultra Light Lager,',
+    description: '2.4% ABV',
+    image: select55Img,
+    link: '/budweiser-select-55',
+  },
+  {
+    id: 'bud-chelada',
+    name: 'Budweiser Chelada',
+    tagline: 'Budweiser Chelada With',
+    description: 'Clamato, 5.0% ABV',
+    image: cheladaImg,
+    link: '/budweiser-chelada',
+  },
+];
 
 export default function OurBeers() {
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const query = `*[_type == "brew" && featured == true] | order(order asc) {
-      _id,
-      name,
-      tagline,
-      description,
-      image,
-      backgroundColor,
-      link,
-      order
-    }`;
-
-    client
-      .fetch(query)
-      .then((data) => {
-        console.log('Brews fetched:', data);
-        setProducts(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error('Error fetching brews:', err);
-        setLoading(false);
-      });
-  }, []);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -50,21 +70,6 @@ export default function OurBeers() {
     observer.observe(el);
     return () => observer.unobserve(el);
   }, []);
-
-  if (loading) {
-    return (
-      <section
-        className={styles.section}
-        style={{ backgroundImage: `url(${texture3})` }}
-        aria-label="Our Beers"
-      >
-        <h2 className={styles.heading}>Our Beers</h2>
-        <div className={styles.grid}>
-          <p>Loading...</p>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section
@@ -82,7 +87,7 @@ export default function OurBeers() {
 
           return (
             <CardWrapper
-              key={product._id}
+              key={product.id}
               {...wrapperProps}
               className={`${styles.card} ${visible ? styles.cardVisible : ''}`}
               style={{ transitionDelay: `${i * 100}ms` }}
@@ -96,11 +101,11 @@ export default function OurBeers() {
                   loading="lazy"
                 />
                <img
-  src={urlFor(product.image).width(800).url()}
-  alt={product.image.alt || product.name}
-  className={styles.canImage}
-  loading="lazy"
-/>
+                  src={product.image}
+                  alt={product.name}
+                  className={styles.canImage}
+                  loading="lazy"
+                />
               </div>
               <div className={styles.cardBody}>
                 <span className={styles.cardName}>{product.name}</span>

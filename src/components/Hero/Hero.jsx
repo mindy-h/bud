@@ -1,75 +1,12 @@
-import { useEffect, useState } from 'react';
-import { client } from '../../sanity/client';
 import bottleImg from '../../assets/bottle.webp';
 import heroImg from '../../assets/hero_img.webp';
 import texture1 from '../../assets/texture1.webp';
 import texture2 from '../../assets/texture2.webp';
 import styles from './Hero.module.css';
 
-/** Full hero layout when Sanity has no `hero` doc or the request fails. */
-const FALLBACK_HERO = {
-  headline: 'The Great American Lager',
-  subheadline:
-    'The same commitment to quality since 1876 — brewed for those who give everything their best.',
-  ctaText: 'Explore 150 Years',
-  ctaLink: '/history',
-};
-
 export default function Hero() {
-  const [heroData, setHeroData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const query = `*[_type == "hero"][0]{
-      _id,
-      _type,
-      headline,
-      subheadline,
-      ctaText,
-      ctaLink,
-      backgroundImage{
-        asset->{
-          _id,
-          url
-        },
-        alt
-      }
-    }`;
-
-    client
-      .fetch(query)
-      .then((data) => {
-        setHeroData(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error('Error fetching hero:', err);
-        setError(err);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return (
-      <section className={styles.hero} aria-label="Loading">
-        <div className={styles.leftPanel}>
-          <div className={styles.leftContent}>
-            <div>Loading...</div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (error) {
-    console.error('Failed to load hero content', error);
-  }
-
-  const data = error || !heroData ? FALLBACK_HERO : heroData;
-
   return (
-    <section className={styles.hero} aria-label={data.headline}>
+    <section className={styles.hero} aria-label="The Great American Lager">
       {/* Left panel */}
       <div className={styles.leftPanel}>
         <div
@@ -79,23 +16,17 @@ export default function Hero() {
         />
         <div className={styles.leftContent}>
           <h1 className={styles.heading}>
-            {data.headline.split(' ').map((word, i) => (
-              <span key={i}>
-                {word}
-                {i < data.headline.split(' ').length - 1 && <br />}
-              </span>
-            ))}
+            The Great<br />
+            American<br />
+            Lager
           </h1>
-          {data.subheadline && (
-            <p className={styles.description}>
-              {data.subheadline}
-            </p>
-          )}
-          {data.ctaText && data.ctaLink && (
-            <a href={data.ctaLink} className={styles.cta}>
-              {data.ctaText}
-            </a>
-          )}
+          <p className={styles.description}>
+            The same commitment to quality since 1876 - brewed for those who
+            give everything their best.
+          </p>
+          <a href="/history" className={styles.cta}>
+            Explore 150 Years
+          </a>
         </div>
       </div>
 
