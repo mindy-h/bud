@@ -1,10 +1,11 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import texturefull from '../../assets/texturefull.webp';
+import slide150 from '../../assets/150slide.png';
 import styles from './BrewCarousel.module.css';
 
 const slides = [
-  { id: 1, label: 'FPO Slide 1' },
+  { id: 1, label: '150 years', image: slide150 },
   { id: 2, label: 'FPO Slide 2' },
   { id: 3, label: 'FPO Slide 3' },
 ];
@@ -84,8 +85,18 @@ export default function BrewCarousel() {
               aria-label={`Slide ${i + 1} of ${slides.length}`}
               aria-hidden={i !== current}
             >
-              <div className={styles.slidePlaceholder}>
-                <span className={styles.fpoText}>{slide.label}</span>
+              <div
+                className={`${styles.slidePlaceholder} ${slide.image ? styles.slidePlaceholderMedia : ''}`}
+              >
+                {slide.image ? (
+                  <img
+                    src={slide.image}
+                    alt=""
+                    className={styles.slideImage}
+                  />
+                ) : (
+                  <span className={styles.fpoText}>{slide.label}</span>
+                )}
               </div>
             </div>
           ))}

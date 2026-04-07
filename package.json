@@ -11,6 +11,8 @@
     "optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
+    "@sanity/client": "^7.15.0",
+    "@sanity/image-url": "^2.0.3",
     "lucide-react": "^0.563.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

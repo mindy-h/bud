@@ -131,6 +131,21 @@
   padding: var(--space-8);
 }
 
+.slidePlaceholderMedia {
+  padding: 0;
+  justify-content: stretch;
+  align-items: stretch;
+  background: #0f224b;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .fpoText {
   font-family: var(--font-brand);
   font-size: clamp(2rem, 4vw, 4rem);
